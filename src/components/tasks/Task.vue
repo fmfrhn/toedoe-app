@@ -71,7 +71,7 @@ const undo = () => {
   editingTask.value = props.task.name;
 };
 
-const markTaskAsCompleted = () => {
+const markTaskAsCompleted = async () => {
   const updateTask = { ...props.task, is_completed: !props.task.is_completed };
   emit("completed", updateTask);
 };
