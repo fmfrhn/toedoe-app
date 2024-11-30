@@ -1,5 +1,7 @@
+// index.js
 import { createRouter, createWebHistory } from "vue-router";
 import routes from "./routes";
+import { useAuthStore } from "@/stores/auth";
 
 const router = createRouter({
   routes,
@@ -8,9 +10,9 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from) => {
-  console.log("global before each", to, from);
+  const store = useAuthStore()
   // return false // sebagai guard untuk memblokir route / <a>
-  if (to.meta.auth) {
+  if (to.meta.auth && !store.isLoggedIn) {
     return { name: "login", query: { redirect: to.fullPath } };
   }
 });

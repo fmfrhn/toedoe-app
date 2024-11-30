@@ -3,24 +3,27 @@ import LoginPage from "@/pages/LoginPage.vue";
 import RegisterPage from "@/pages/RegisterPage.vue";
 import SummaryPage from "@/pages/SummaryPage.vue";
 import NotFoundErrorPage from "@/pages/errors/NotFoundErrorPage.vue";
-import Homepage from "@/pages/Homepage.vue";
+import Homepage from "@/pages/HomePage.vue";
 
+// mirip - mirip seperti middleware
 const routes = [
   {
     path: "/tasks",
     component: TasksPage,
     name: "tasks",
-    // meta: {
-    //   auth: true,
-    // },
+
+    // untuk mengaktifkan rules dari index.js
+    meta: {
+      auth: true,
+    },
   },
   {
     path: "/summary",
     component: SummaryPage,
     name: "summary",
-    // meta: {
-    //   auth: true,
-    // },
+    meta: {
+      auth: true,
+    },
   },
   {
     path: "/login",
